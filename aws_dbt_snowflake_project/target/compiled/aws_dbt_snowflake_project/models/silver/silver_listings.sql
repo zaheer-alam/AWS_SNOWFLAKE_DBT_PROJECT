@@ -1,0 +1,25 @@
+
+
+SELECT 
+    LISTING_ID,
+    HOST_ID,
+    
+    INITCAP(TRIM(PROPERTY_TYPE))
+ AS PROPERTY_TYPE,
+    ROOM_TYPE,
+    CITY,
+    COUNTRY,
+    ACCOMMODATES,
+    BEDROOMS,
+    BATHROOMS,
+    
+   CASE
+        WHEN PRICE_PER_NIGHT < 100 THEN 'low'
+        WHEN PRICE_PER_NIGHT >= 100 AND PRICE_PER_NIGHT < 200 THEN 'medium'
+        ELSE 'high'
+    END
+ AS PRICE_TAG,
+    PRICE_PER_NIGHT,
+    CREATED_AT
+FROM 
+    AIRBNB.bronze.bronze_listings

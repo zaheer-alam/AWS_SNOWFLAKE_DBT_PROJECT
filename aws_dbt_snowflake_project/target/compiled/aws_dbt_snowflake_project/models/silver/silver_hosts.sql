@@ -1,0 +1,12 @@
+    
+
+SELECT
+    HOST_ID,
+    
+    INITCAP(TRIM(HOST_NAME))
+ AS HOST_NAME,
+    IS_SUPERHOST,
+    RESPONSE_RATE,
+    CREATED_AT
+FROM 
+    AIRBNB.bronze.bronze_hosts
